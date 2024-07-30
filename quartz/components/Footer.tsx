@@ -14,6 +14,9 @@ export default ((opts?: Options) => {
     return (
       <footer class={`${displayClass ?? ""}`}>
         <p>
+            Copyright 2024-{(new Date()).getFullYear()} Ryan Benasutti. Any and all opinions listed here are my own and not representative of any of my employers, past, future, and/or present.
+        </p>
+        <p>
           {i18n(cfg.locale).components.footer.createdWith}{" "}
           <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
         </p>
