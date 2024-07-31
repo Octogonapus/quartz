@@ -1,5 +1,6 @@
 ---
 date: 2024-07-29
+description: Some helpful tips about containerizing Julia services.
 ---
 Some helpful tips about containerizing Julia services.
 ## Creating a Dockerfile

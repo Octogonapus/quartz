@@ -1,5 +1,6 @@
 ---
 date: 2024-07-30
+description: An overview of how to connect to RDS and RDS Proxy.
 ---
 
 An overview of how to connect to RDS and RDS Proxy because I often see people getting confused.
