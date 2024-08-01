@@ -68,7 +68,11 @@ Neither solution will eliminate load times, but will still improve time-to-first
 
 ### Remove Extra Files
 
-When Pkg.jl installs your dependencies, all the files from those packages repositories are installed. This includes files which are not needed at runtime (documentation, build scripts, etc.). Notably, this can also include other code (projects used to generate bindings, etc.). If you use a tool like [Trivy](https://aquasecurity.github.io/trivy) to generate an SBOM of your container, you will see many additional Julia packages in the container. These can be removed using a script that runs after Pkg.jl is done installing, building, and precompiling. Note that you need to run this script in the same build step as your other Pkg.jl code; otherwise, these files will still be comitted into an earlier layer in the container.
+When Pkg.jl installs your dependencies, all the files from those packages' repositories are installed. This includes files which *should* not be needed at runtime (tests, documentation, build scripts, etc.). Some packages may actually have dependencies on these extra files, so removing them is not an entirely safe operation. However, that is uncommon and you should be testing these containers in your CI pipeline regardless.
+
+Notably, these extra files can include other code (projects used to generate bindings, etc.). If you use a tool like [Trivy](https://aquasecurity.github.io/trivy) to generate an SBOM of your container, you will see many additional Julia packages in the container.
+
+All of these files can be removed using a script that runs after Pkg.jl is done installing, building, and precompiling your package. Note that you need to run this script in the same build step as your other Pkg.jl operations; otherwise, these files will still be committed into an earlier layer in the container.
 
 ```sh
 #!/bin/bash
