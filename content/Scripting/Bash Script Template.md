@@ -1,5 +1,5 @@
 ---
-date: 2024-04-05
+date: 2025-04-05
 description: A bash script template with sensible defaults.
 ---
 I have long referred to [Sharat's Shell Script Best Practices](https://sharats.me/posts/shell-script-best-practices/) as a starting point for my scripts, but I was working on an email processing script and ended up making a few tweaks I thought constituted good defaults. That article is still great explanation of the motivation behind this template, which I won't repeat. Here's my new template in case it's useful to anyone else:
